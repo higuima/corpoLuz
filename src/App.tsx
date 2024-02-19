@@ -8,19 +8,19 @@ import Footer from "./scenes/footer"
 function App() {
 
   return (
-    <div className='app bg-beige-10'>
-      <Navbar isTopOfPage={false} selectedPage={"c:/Users/higui/Desktop/corpoLuz/corpoDeLuz/src/shared/types".Home} setSelectedPage={function (value: SelectedPage): void {
+    <div className='app bg-beige-10 select-none'>
+      <Navbar isTopOfPage={false} selectedPage={SelectedPage.Home} setSelectedPage={function (): void {
         throw new Error("Function not implemented.")
       } }/>
-      <Home setSelectedPage={function (value: SelectedPage): void {
+      <Home setSelectedPage={function (): void {
         throw new Error("Function not implemented.")
       } }/>
-      <Aulas setSelectedPage={function (value: SelectedPage): void {
+      <Aulas setSelectedPage={function (): void {
         throw new Error("Function not implemented.")
       } }/>
-      <Footer setSelectedPage={function (value: SelectedPage): void {
+      <Footer setSelectedPage={function (): void {
         throw new Error("Function not implemented.")
-      } } selectedPage={"c:/Users/higui/Desktop/corpoLuz/corpoDeLuz/src/shared/types".EntreemContato}></Footer>
+      } } selectedPage={SelectedPage.EntreemContato}></Footer>
     </div>
   )
 }

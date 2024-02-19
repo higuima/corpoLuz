@@ -9,7 +9,7 @@ type Props = {
 const ActionButton = ({ children, setSelectedPage }: Props) => {
   return (
     <AnchorLink
-        className="bg-beige-20 text-2xl lg:text-3xl px-5 py-2 hover:bg-brown-10 hover:text-white"
+        className="bg-beige-20 text-2xl lg:text-3xl px-5 py-2 hover:bg-brown-20 hover:text-white text-center"
         onClick={() => setSelectedPage(SelectedPage.EntreemContato)}
         href={`#${SelectedPage.EntreemContato}`}
     >

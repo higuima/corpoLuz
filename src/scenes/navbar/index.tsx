@@ -5,6 +5,7 @@ import Link from "./Link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
+import { motion } from "framer-motion";
 
 type Props = {
     isTopOfPage: boolean;
@@ -22,13 +23,16 @@ const Navbar = ( {isTopOfPage, selectedPage,setSelectedPage} : Props) => {
     <div className={`${navbarBackground} ${flexBetween} sticky top-0 z-40 w-full py-6`}>
         <div className={`${flexBetween} mx-auto w-5/6`}>
             <div className={`${flexBetween} w-full gap-16`}>
-                {/*  LEFT SIDE  */}
-                <img alt='logo_marrom_marrom' src={logo_marrom}></img>
-
-                {/*  RIGHT SIDE  */}
+               
                 {isAboveMediumScreens ? (
-                <div className={`flex items-center justify-end gap-16 w-full`}>       
-                    <div className={`${flexBetween}  gap-16 text-2xl lg:text-3xl`}>
+                <div className={`flex items-center justify-center gap-16 w-full`}> 
+                    {/*  LEFT SIDE  */}
+                    <motion.div className="w-full flex items-start">
+                    <img alt='logo_marrom_marrom' src={logo_marrom}></img>
+                    </motion.div>
+
+                    {/*  RIGHT SIDE  */}      
+                    <div className={`${flexBetween} w-full gap-16 text-2xl lg:text-3xl`}>
                         <Link 
                             page="Aulas"
                             selectedPage={selectedPage}
@@ -39,18 +43,21 @@ const Navbar = ( {isTopOfPage, selectedPage,setSelectedPage} : Props) => {
                             selectedPage={selectedPage}
                             setSelectedPage={setSelectedPage}
                         />
-                    </div>
-                    <div className={`${flexBetween} gap-8`}>
-                        <ActionButton setSelectedPage={setSelectedPage}>Entre em contato</ActionButton>
+                        <div className={`${flexBetween} gap-8`}>
+                            <ActionButton setSelectedPage={setSelectedPage}>Entre em contato</ActionButton>
+                        </div>
                     </div>
                 </div>
                 ) : (
+                    <div className="flex flex-row items-center justify-center">
+                    <img alt='logo_marrom_marrom' src={logo_marrom}></img>
                     <button
-                        className="rounded-full bg-brown-10 p-2"
+                        className="rounded-full bg-brown-10 p-2 right-0 top-0"
                         onClick={() => setMenuToggled(!isMenuToggled)}
                     >
                         <Bars3Icon className="h-6 w-6 text-white" />
                     </button>
+                    </div>
                 )}
             </div>
         </div>

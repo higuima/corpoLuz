@@ -13,16 +13,16 @@ const Aulas = ({setSelectedPage}: Props) => {
     const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
 
   return (
-    <section id='aulas' className='gap-16 items-center h-full md:h-5/6 bg-brown-10 py-10 z-10'>
+    <section id='aulas' className='flex items-center justify-center h-fit py-10 w-full bg-brown-10 z-10'>
         <motion.div
-        className='mx-auto w-5/6 items-center flex flex-col md:flex md:flex-row md:h-5/6'
+        className='w-5/6 flex items-center justify-center flex-col md:flex md:flex-row space-x-4'
         onViewportEnter={() => setSelectedPage(SelectedPage.Aulas)}
         >
             {/* CLASSES TEXT */}
-            <div className="z-10 md:basis-1/2 md:pl-20">
+            <div className="w-full z-10 space-y-8 md:basis-1/2">
                 {/* HEADINGS */}
                 <motion.div 
-                    className="md:mt-20"
+                    className="w-full space-y-4"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{once: true, amount: 0.5}}
@@ -33,12 +33,12 @@ const Aulas = ({setSelectedPage}: Props) => {
                     }}
                 >
                     <div>
-                        <div className='text-3xl md:text-4x lg:text-6xl text-beige-10 font-extrabold'> 
+                        <div className='text-xl md:text-3xl lg:text-4xl text-beige-10 font-extrabold text-balance text-center md:text-start'> 
                             <h1>Experiências incríveis com excelentes profissionais</h1>
                         </div>
                     </div>
 
-                    <p className='mt-4 font-ysabeau text-xl md:text-2xl lg:text-3xl md:mt-8 text-beige-10'>
+                    <p className='font-ysabeau text-lg md:text-xl lg:text-2xl text-beige-10 text-balance text-center md:text-start'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
@@ -52,7 +52,7 @@ const Aulas = ({setSelectedPage}: Props) => {
 
                 {/* ACTIONS */}
                 {isAboveMediumScreens ? (
-                    <div className={`${flexBetween} mt-8 gap-8`}>
+                    <div className={`${flexBetween} gap-8`}>
                         <ActionButton setSelectedPage={setSelectedPage}>Entre em contato</ActionButton>
                     </div>
                 ) : (<div></div>)}
@@ -60,7 +60,7 @@ const Aulas = ({setSelectedPage}: Props) => {
             
             {/* IMAGE */}
             <motion.div 
-                className='flex justify-center mt-8 md:z-10 md:ml-40 md:mt-16'
+                className='flex justify-center md:z-10 md:basis-1/2'
                 initial="hidden"
                 whileInView="visible"
                 viewport={{once: true, amount: 0.5}}
@@ -70,7 +70,7 @@ const Aulas = ({setSelectedPage}: Props) => {
                 visible: { opacity: 1, x: 0 },
                 }}
             >
-                <img className='w-5/6 basis-full md:basis-1/2 rounded-full'alt="yoga" src={useChangeIamge()}/>
+                <img className='w-5/6 md:w-full rounded-full'alt="yoga" src={useChangeIamge()}/>
             </motion.div>
         </motion.div>       
     </section>

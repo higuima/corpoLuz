@@ -9,15 +9,15 @@ type Props = {
 
 const Home = ({setSelectedPage}: Props) => {
 
-  return <section id='home' className='gap-8 bg-gray-20 h-full sm:h-5/6 w-full pb-0'>
+  return <section id='home' className='bg-gray-20 h-fit py-10 w-full flex items-start justify-center'>
     {/* IMAGE AND MAIN HEADER */}
     <motion.div 
-        className="mx-auto w-5/6 items-center flex flex-col md:flex md:flex-row h-5/6 "
+        className="w-5/6 h-fit items-center flex justify-between gap-4 flex-col md:flex-row"
         onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
     >
         {/* IMAGE */}
         <motion.div 
-            className='flex justify-center md:basis-1/2 md:ml-40 md:mt-16 md:justify-start'
+            className='md:basis-1/2'
             initial="hidden"
             whileInView="visible"
             viewport={{once: true, amount: 0.5}}
@@ -27,39 +27,33 @@ const Home = ({setSelectedPage}: Props) => {
             visible: { opacity: 1, x: 0 },
             }}
         >
-            <img className='w-full basis-full md:basis-1/2'alt="clinica-frente" src={clinica_frente}/>
+            <img className='w-full'alt="clinica-frente" src={clinica_frente}/>
         </motion.div>
         
 
-        {/* MAIN HEADER */}
-        <div className="md:pl-16 my-16 md:basis-1/2 ">
-            {/* HEADINGS */}
-            <motion.div 
-                className="md:-mt-20"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{once: true, amount: 0.5}}
-                transition={{ duration: 0.5 }}
-                variants={{
-                  hidden: { opacity: 0, x: 50 },
-                  visible: { opacity: 1, x: 0 },
-                }}
-            >
-                <div>
-                    {/* This sets the EVOLVE text behind the home page image. If you want something behin, use the z-[-1] */}
-                    <div className='before:absolute before:-top-20 before:-left-20 before:z-[-1] text-6xl text-brown-20 font-extrabold'> 
-                        <h1>Espaço corpo de luz <br></br>Venha nos conhecer!</h1>
-                    </div>
-                </div>
+        {/* HEADINGS */}
+        <motion.div 
+            className="md:basis-1/2 flex items-start justify-start flex-col gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{once: true, amount: 0.5}}
+            transition={{ duration: 0.5 }}
+            variants={{
+                hidden: { opacity: 0, x: 50 },
+                visible: { opacity: 1, x: 0 },
+            }}
+        >
+            <div className='text-6xl text-brown-20 font-extrabold'> 
+                <h1 className='text-balance'>Espaço corpo de luz.</h1>
+            </div>
 
-                <p className='mt-8 font-ysabeau font-semibold text-4xl'>
-                Um lugar para cuidar da mente e do corpo.
-                </p>
-            </motion.div>
-
+            <p className='font-ysabeau font-semibold text-4xl'>
+            Um lugar para cuidar da mente e do corpo.
+            </p>
+        
             {/* ACTIONS */}
             <motion.div 
-                className='my-4 flex items-center gap-8'
+                className='justify-start'
                 initial="hidden"
                 whileInView="visible"
                 viewport={{once: true, amount: 0.5}}
@@ -73,7 +67,7 @@ const Home = ({setSelectedPage}: Props) => {
                     Entre em contato
                 </ActionButton>
             </motion.div>
-        </div>
+        </motion.div>
 
     </motion.div>
 

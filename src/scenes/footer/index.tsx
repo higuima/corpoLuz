@@ -21,7 +21,6 @@ const Footer = ({setSelectedPage}: Props) => {
             {/*  RIGHT SIDE  */}
             <div className={`flex items-center justify-end gap-4 w-full`}>
                 <div className={`${flexBetween}  gap-4 text-3xl`}>
-                <h1>Facebook</h1>
                 </div>
             </div>
         </motion.div>
